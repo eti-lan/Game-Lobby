@@ -1,0 +1,7 @@
+{
+  "serverHost": "lol420.servers.lan",
+  "gameServerPort": 5119,
+  "httpPort": 5120,
+  "webSocketPort": 5121,
+  "gameDirectory": "../gameclient"
+}

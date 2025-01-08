@@ -1,0 +1,605 @@
+/* Font Faces */
+@font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.9em;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    color: #ffcc00;
+}
+
+#status-line {
+    position: absolute;
+    font-size: 0.9em;
+    z-index: 2;
+    top: 30px;
+    right: 30px;
+    font-weight: bold;
+    color: #00bbf9;
+}
+
+#countdown {
+    width: 100%;
+    background-color: rgba(211, 50, 47, 0.9);
+    position: fixed;
+    margin-left: -30px;
+    margin-top: 200px;
+    z-index: 99;
+    display: none;
+    padding: 75px;
+    font-size: 2.7em;
+    color: #ffffff;
+    text-align: center;
+    top: 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Container */
+#top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+/* Player Setup Container */
+#player-setup-container {
+    flex: 1;
+    padding: 15px;
+    margin-right: 10px;
+    background-color: #2d2d44;
+    display: flex;
+    align-items: flex-start;
+    height: 265px;
+    border: none;
+    border-radius: 8px;
+    justify-content: space-between;
+}
+
+#player-setup {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#player-setup h3 {
+    margin-bottom: 10px;
+    color: #ffcc00;
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+}
+
+#player-setup select,
+#player-setup input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #00bbf9;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
+#player-setup select:focus,
+#player-setup input[type="text"]:focus {
+    outline: none;
+    border-color: #ffcc00;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Button Groups */
+.button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+.btn-leave {
+    height: 3.2em;
+    background-color: #c62828;
+    color: #ffffff;
+}
+.btn-leave:hover {
+    background-color: #b71c1c;
+}
+
+.btn-ready {
+    height: 3.2em;
+    background-color: #388e3c;
+    color: #ffffff;
+}
+.btn-ready.ready {
+    background-color: #fbc02d;
+}
+.btn-ready:hover {
+    background-color: #2e7d32;
+}
+
+.btn-admin {
+    height: 3.2em;
+    background-color: #ff9800;
+    color: #ffffff;
+}
+.btn-admin:hover {
+    background-color: #fb8c00;
+}
+
+.btn-settings {
+    height: 3.2em;
+    background-color: #2196f3;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    display: none;
+    width: 100%;
+    margin-top: 13px;
+}
+.btn-settings:hover {
+    background-color: #1976d2;
+}
+
+.btn-team {
+    background-color: #d32f2f;
+    color: #ffffff;
+}
+.btn-team:hover {
+    background-color: #b71c1c;
+}
+
+.btn-send {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+.btn-send:hover {
+    background-color: #45a049;
+}
+
+.btn-primary {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: #5555aa;
+    color: #ffffff;
+}
+.btn-secondary:hover {
+    background-color: #444499;
+}
+
+/* Password Field */
+#admin-password {
+    height: 2.9em;
+    width: 30px;
+    padding: 8px;
+    border: 1px solid #00bbf9;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
+/* Champion Icon Container */
+#champion-icon-container {
+    flex: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 15px;
+}
+
+#champion-icon {
+    width: 80px;
+    height: 87px;
+    display: block;
+    padding: 0;
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
+    margin-top: 32px;
+}
+
+#champion-class {
+    margin-top: 11px;
+    width: 80px;
+    height: 2.2em;
+    border: 1px solid #00bbf9;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #1e1e2f;
+    color: #00bbf9;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.69em;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    opacity: 95%;
+}
+
+#gamesettings-button {
+    background-color: #2196f3;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    display: none;
+    width: 100%;
+    margin-top: 23px;
+}
+#gamesettings-button:hover {
+    background-color: #1976d2;
+}
+
+/* VS Box */
+#vs-box {
+    flex: 6;
+    padding: 15px;
+    background-color: #2d2d44;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 265px;
+    border: none;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
+.team-column {
+    flex: 1;
+}
+.team-column h3 {
+    margin-bottom: 10px;
+    color: #ffcc00;
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+}
+
+#team-red-players,
+#team-blue-players {
+    font-size: 1em;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#team-red-players div,
+#team-blue-players div {
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #1e1e2f;
+    border: 1px solid #00bbf9;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
+/* Scrollbar Colors */
+#chat,
+#player-list,
+#vs-box,
+.chat-messages,
+.player-list {
+    scrollbar-width: thin;
+    scrollbar-color: #00bbf9 #2d2d44;
+}
+
+.champion-icon-xs {
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.vs {
+    flex: 0.5;
+    font-weight: bold;
+    font-size: 2em;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Chat and Player List */
+.container {
+    display: flex;
+    margin-top: 10px;
+    align-items: flex-start;
+}
+
+#chat {
+    flex: 4;
+    margin-right: 20px;
+}
+
+#chat h3 {
+    margin-bottom: 10px;
+    color: #ffcc00;
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.chat-messages {
+    height: 350px;
+    overflow-y: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #1e1e2f;
+    border: 1px solid #00bbf9;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+}
+
+.chat-messages div {
+    background-color: #2d2d44;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #00bbf9;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    text-align: left;
+}
+
+.chat-messages div.status-message {
+    text-align: center;
+    color: #ffcc00;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
+.chat-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+#chat-input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #00bbf9;
+    border-radius: 8px;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+#chat-input::placeholder {
+    color: #cccccc;
+}
+
+#chat-send {
+    width: 10%;
+    padding: 8px;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+#chat-send:hover {
+    background-color: #45a049;
+}
+
+/* Player List */
+#player-list-header h3 {
+    margin-bottom: 10px;
+    color: #ffcc00;
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.player-list {
+    border: 1px solid #00bbf9;
+    height: 393px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #1e1e2f;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
+.player-list div {
+    background-color: #2d2d44;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #00bbf9;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
+/* Game Settings Modal */
+.modal {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #2d2d44;
+    margin: 10% auto;
+    padding: 20px;
+    border: none;
+    width: 300px;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+.close-button {
+    color: #ffffff;
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-button:hover,
+.close-button:focus {
+    color: #ff4e4e;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #ffcc00;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.form-group input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #00bbf9;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    border-radius: 8px;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><path fill="%23ffffff" d="M6 8l-4-4h8z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+.form-group select:focus {
+    outline: none;
+    border-color: #ffcc00;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #top-container {
+        flex-direction: column;
+    }
+
+    #vs-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    #chat,
+    #player-list-header {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #chat-send {
+        width: 100%;
+    }
+
+    .button-group,
+    .admin-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #champion-icon-container {
+        margin-left: 0;
+        margin-bottom: 10px;
+        align-items: flex-end;
+    }
+
+    #gamesettings-button {
+        width: 100%;
+    }
+
+    #player-setup-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #player-setup {
+        width: 100%;
+    }
+}

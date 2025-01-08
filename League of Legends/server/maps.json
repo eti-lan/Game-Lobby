@@ -1,0 +1,29 @@
+{
+  "maps": [
+    {
+      "id": 1,
+      "name": "Summoner's Rift (Classic Version)",
+      "description": "5vs5"
+    },
+    {
+      "id": 8,
+      "name": "Twisted Treeline (unplayable)",
+      "description": "3vs3"
+    },
+    {
+      "id": 10,
+      "name": "Crystal Scar (buggy)",
+      "description": "5vs5"
+    },
+    {
+      "id": 11,
+      "name": "Summoner's Rift",
+      "description": "5vs5"
+    },
+    {
+      "id": 12,
+      "name": "Howling Abyss (buggy)",
+      "description": "1vs1 to 5vs5"
+    }
+  ]
+}

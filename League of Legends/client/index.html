@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ETI GameLobby Client</title>
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+<body>
+  <h1>League of Legends 4.20</h1>
+  <div id="status-line">Disconnected</div>
+
+  <div id="countdown">
+    Game starts in <span id="countdown-timer">10</span> seconds...
+  </div>
+
+  <!-- Top Container -->
+  <div id="top-container">
+    <!-- Player Setup -->
+    <div id="player-setup-container">
+      <div id="player-setup">
+        <h3>Player Setup</h3>
+        <input type="text" id="name" placeholder="Your Name">
+        <select id="champion">
+          <option value="" disabled selected>Select Champion</option>
+        </select>
+        <select id="spell">
+          <option value="" disabled selected>Select Spell</option>
+        </select>
+
+        <!-- Controls -->
+        <div class="button-group">
+          <button id="leave" class="btn btn-leave">Leave Team</button>
+          <button id="ready" class="btn btn-ready">Ready</button>
+          <button id="admin-button" class="btn btn-admin">Start!</button>
+          <input type="password" id="admin-password" placeholder="PIN">
+        </div>
+      </div>
+
+      <!-- Champion Icon and Settings Button -->
+      <div id="champion-icon-container">
+        <img id="champion-icon" src="assets/icons/default-champion.png" alt="Champion Icon"
+             onerror="this.onerror=null; this.src='assets/icons/default-champion.png';">
+        <div id="champion-class"></div>
+        <button id="gamesettings-button" class="btn btn-settings">Game Settings</button>
+      </div>
+
+    </div>
+
+    <!-- VS-Box -->
+    <div id="vs-box">
+      <div class="team-column" id="team-red-column">
+        <h3>Red Team</h3>
+        <div id="team-red-players">No players yet</div>
+        <button id="team-red" class="btn btn-team">Select Red Team</button>
+      </div>
+      <div class="vs">
+        <h3>VS</h3>
+      </div>
+      <div class="team-column" id="team-blue-column">
+        <h3>Blue Team</h3>
+        <div id="team-blue-players">No players yet</div>
+        <button id="team-blue" class="btn btn-team">Select Blue Team</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat and Player list -->
+  <div class="container">
+    <!-- Chat -->
+    <div id="chat">
+      <h3>Chat</h3>
+      <div id="chat-messages" class="chat-messages"></div>
+      <div class="chat-input-group">
+        <input type="text" id="chat-input" placeholder="Enter message">
+        <button id="chat-send" class="btn btn-send">Send</button>
+      </div>
+    </div>
+
+    <!-- Player list -->
+    <div id="player-list-header">
+      <h3>Connected Players</h3>
+      <div id="player-list" class="player-list">
+        <!-- Dynamic -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Gamesettings Modal -->
+  <div id="gamesettings-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-gamesettings">&times;</span>
+      <h2>Game Settings</h2>
+      <form id="gamesettings-form">
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="mana-costs-enabled" checked>
+            Mana Costs Enabled
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="cooldowns-enabled" checked>
+            Cooldowns Enabled
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="minion-spawns-enabled" checked>
+            Minion Spawns Enabled
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="tick-rate">Tick Rate:</label>
+          <select id="tick-rate" name="tick-rate">
+            <option value="30">30 TPS</option>
+            <option value="60" selected>60 TPS (default)</option>
+            <option value="100">100 TPS</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="map-select">Map:</label>
+          <select id="map-select">
+            <!-- Dynamic -->
+          </select>
+        </div>
+        <div class="modal-button-group">
+          <button type="button" id="save-gamesettings" class="btn btn-primary">Save Settings</button>
+          <button type="button" id="cancel-gamesettings" class="btn btn-secondary">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="server-check-modal" class="modal">
+    <div class="modal-content">
+      <span id="server-check-close" class="close">&times;</span>
+      <h2>Server not available</h2>
+      <p>Please enter a new IP address or hostname:</p>
+      <input type="text" id="new-server-input" placeholder="New IP / Hostname" />
+      <div class="modal-button-group">
+        <button id="new-server-save" class="btn btn-primary">Save</button>
+        <button id="new-server-cancel" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script defer src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "gameServerPort": 5119,
+  "httpPort": 5120,
+  "webSocketPort": 5121,
+  "logFile": "server.log",
+  "adminPassword": "123",
+  "gameInfoPath": "../gameserver/GameServerConsole/bin/Settings/GameInfo.json",
+  "gameServerPath": "../gameserver/GameServerConsole/bin",
+  "gameSettings": {
+    "MANACOSTS_ENABLED": true,
+    "COOLDOWNS_ENABLED": true,
+    "MINION_SPAWNS_ENABLED": true,
+    "TICK_RATE": 60,
+    "map": 1
+  }
+}

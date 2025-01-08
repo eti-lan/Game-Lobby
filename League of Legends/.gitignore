@@ -1,0 +1,17 @@
+
+/client/node_modules
+/node_modules
+server.log
+/server/node_modules
+client/player_data.json
+LeagueLobby.zip
+gpt.txt
+/client/Logs
+server/package-lock.json
+/gameclient
+/gameserver
+/client-pack
+server/package-lock.json
+server/server.exe
+/client-pack2
+/.idea

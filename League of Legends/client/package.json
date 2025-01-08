@@ -1,0 +1,46 @@
+{
+  "name": "Client",
+  "version": "2025.01.07",
+  "description": "eti GameLobby Client (LoL 4.20)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.eti.gamelobby.client",
+    "win": {
+      "target": "portable",
+      "icon": "lobby.ico"
+    },
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "renderer.js",
+      "index.html",
+      "styles.css",
+      "node_modules/**/*",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "./client-config.json",
+        "to": "./client-config.json"
+      },
+      {
+        "from": "./player-data.json",
+        "to": "./player-data.json"
+      }
+    ]
+  },
+  "dependencies": {
+    "axios": "^1.7.9"
+  }
+}

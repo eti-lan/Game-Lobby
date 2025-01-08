@@ -1,0 +1,21 @@
+{
+  "name": "eti-gamelobby-server",
+  "version": "1.0.0",
+  "description": "eti Gamelobby Server (LoL 4.20)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "electron": "^33.2.1",
+    "express": "^4.21.2",
+    "pkg": "^5.8.1",
+    "ws": "^8.18.0"
+  }
+}
