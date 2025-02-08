@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Supraball Server Launcher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+      margin-bottom: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.9);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .maps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    .map-box {
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+      background-color: #f9f9f9;
+    }
+    .map-box:hover {
+      transform: scale(1.03);
+      border-color: #0078D7;
+    }
+    .map-box.selected {
+      border-color: #0078D7;
+      box-shadow: 0 0 10px rgba(0,120,215,0.5);
+    }
+    .map-box img {
+      width: 100%;
+      height: 40px;
+      object-fit: cover;
+      display: block;
+    }
+    .map-box .map-label {
+      padding: 5px;
+      text-align: center;
+      font-weight: bold;
+      background-color: #fff;
+      font-size: 12px;
+    }
+    .input-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      justify-content: center;
+    }
+    .input-group label {
+      margin-right: 10px;
+      font-size: 14px;
+      min-width: 120px;
+      text-align: right;
+    }
+    .input-group input, .input-group textarea {
+      padding: 5px;
+      font-size: 14px;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .input-group textarea {
+      resize: vertical;
+    }
+    .buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .buttons button {
+      width: 100px;
+      padding: 8px 0;
+      font-size: 11px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin: 0 7px;
+      transition: background 0.2s;
+    }
+    .buttons button#startButton {
+      background-color: #28a745;
+      color: #fff;
+    }
+    .buttons button#startButton:hover {
+      background-color: #218838;
+    }
+    .buttons button#cancelButton {
+      background-color: #dc3545;
+      color: #fff;
+    }
+    .buttons button#cancelButton:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Supraball Server Launcher</h1>
+  <div class="container">
+    <div class="maps-container" id="mapsContainer"></div>
+    <div class="input-group">
+      <label for="timeLimit">Time Limit (minutes):</label>
+      <input type="text" id="timeLimit" value="15">
+    </div>
+    <div class="input-group">
+      <label for="maxPlayers">Max Players:</label>
+      <input type="text" id="maxPlayers" value="12">
+    </div>
+    <div class="input-group">
+      <label for="serverName">Server Name:</label>
+      <input type="text" id="serverName" value="Supraball LAN Server">
+    </div>
+    <div class="buttons">
+      <button id="startButton">Start Server</button>
+      <button id="cancelButton">Cancel</button>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>

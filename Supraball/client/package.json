@@ -1,0 +1,26 @@
+{
+  "name": "supraball-client",
+  "version": "2025.02.08",
+  "description": "Launcher for Supraball",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "asar": false,
+    "appId": "com.eti.gamelauncher",
+    "win": {
+      "target": "portable",
+      "icon": "icon.ico"
+    },
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    }
+  }
+}

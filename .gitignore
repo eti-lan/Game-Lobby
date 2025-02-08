@@ -1,0 +1,6 @@
+
+League of Legends/firewall.cmd
+/Supraball/client/node_modules
+/Supraball/server-launcher/node_modules
+Supraball/server-launcher/package-lock.json
+Supraball/client/package-lock.json

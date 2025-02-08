@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Supraball</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+      margin-bottom: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.9);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .input-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      justify-content: center;
+    }
+    .input-group label {
+      margin-right: 10px;
+      font-size: 14px;
+      min-width: 100px;
+      text-align: right;
+    }
+    .input-group input {
+      padding: 5px;
+      font-size: 14px;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .buttons {
+      text-align: center;
+    }
+    .buttons button {
+      width: 120px;
+      padding: 8px 0;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 10px;
+      background-color: #28a745;
+      color: #fff;
+    }
+    .buttons button:hover {
+      background-color: #218838;
+    }
+    .radio-group {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .radio-group input {
+      margin-right: 5px;
+    }
+    .radio-group label {
+      margin-right: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Supraball</h1>
+  <div class="container">
+    <div class="section">
+      <h2>Connect to Server</h2>
+      <div class="input-group">
+        <label for="serverIP">Server IP or Hostname:</label>
+        <input type="text" id="serverIP" placeholder="192.168.1.100">
+      </div>
+      <div class="buttons">
+        <button id="connectButton">Connect</button>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Start Training Game</h2>
+      <div class="radio-group">
+        <input type="radio" id="trainingSkill" name="trainingMap" value="DB-Skill" checked>
+        <label for="trainingSkill">Skill</label>
+        <input type="radio" id="trainingTutorial" name="trainingMap" value="DB-Tutorial">
+        <label for="trainingTutorial">Tutorial</label>
+        <input type="radio" id="combinedTraining" name="trainingMap" value="combined-training">
+        <label for="combinedTraining">Match</label>
+      </div>
+      <div class="buttons">
+        <button id="trainingButton">Start Training</button>
+      </div>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
