@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GZDoom Launcher</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        /* Overall styling with a dark gradient background */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #000000, #2a0000);
+            margin: 0;
+            padding: 0;
+            color: #f0f0f0;
+        }
+        /* Container for the launcher content */
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #800000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        /* Two-column layout for the form */
+        form {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+        /* Left column: game selection and cover image */
+        .left-column {
+            width: 40%;
+            padding-right: 10px;
+            border-right: 1px solid #800000;
+        }
+        /* Right column: game settings and mode selection */
+        .right-column {
+            width: 60%;
+            padding-left: 10px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff4500;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #d3d3d3;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #800000;
+            border-radius: 4px;
+            background: #1a1a1a;
+            color: #f0f0f0;
+            font-size: 14px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 4px;
+            background: #800000;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #a00000;
+        }
+        /* Mode selection as buttons */
+        .mode-selection {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .mode-button {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #800000;
+            border-radius: 4px;
+            background: transparent;
+            color: #f0f0f0;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .mode-button.selected {
+            background: #800000;
+            border-color: #ff4500;
+        }
+        /* Game cover image styling */
+        #gameCover {
+            width: 100%;
+            border: 1px solid #800000;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        /* Host IP display styling */
+        #hostIpDisplay {
+            display: none;
+            margin-top: 10px;
+            color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GZDoom Launcher</h1>
+        <form id="launcherForm">
+            <div class="left-column">
+                <img id="gameCover" src="images/doom.png" alt="Game Cover">
+                <label for="iwad">Select Game:</label>
+                <select id="iwad" name="iwad">
+                    <option value="doom_complete.pk3">Doom Complete</option>
+                    <option value="heretic.wad">Heretic</option>
+                    <option value="hexen.wad">Hexen</option>
+                    <option value="strife1.wad">Strife</option>
+                    <option value="hacx.wad">Hacx</option>
+                    <option value="chex.wad">Chex Quest</option>
+                    <option value="wolf3d.ipk3">Wolfenstein 3D</option>
+                </select>
+                <label for="addon">Gameplay Addon (optional):</label>
+                <select id="addon" name="addon">
+                    <option value="">Original (Vanilla)</option>
+                    <option value="-file addons/corruptioncards.pk3">Corruption Cards</option>
+                </select>
+                <label for="map">Select Map:</label>
+                <select id="map" name="map">
+                    <option value="">-- Please select a game to load maps --</option>
+                </select>
+            </div>
+            <div class="right-column">
+                <label for="numPlayers">Number of Players (including host):</label>
+                <input type="number" id="numPlayers" name="numPlayers" min="1" max="8" value="1">
+                <label for="port">Port (default 5029):</label>
+                <input type="number" id="port" name="port" placeholder="5029">
+                <label for="skill">Difficulty (1-5):</label>
+                <input type="number" id="skill" name="skill" min="1" max="5" value="3">
+                <label for="cheats">Enable Cheats (0 = no, 1 = yes):</label>
+                <input type="number" id="cheats" name="cheats" min="0" max="1" value="0">
+                <label for="playerClass">Player Class (optional):</label>
+                <input type="text" id="playerClass" name="playerClass" placeholder="+playerclass Fighter">
+                
+                <!-- Hidden input for mode -->
+                <input type="hidden" id="mode" name="mode" value="host">
+                
+                <!-- Mode Selection Buttons -->
+                <label>Mode:</label>
+                <div class="mode-selection">
+                    <button type="button" id="modeHost" class="mode-button selected">Host</button>
+                    <button type="button" id="modeJoin" class="mode-button">Join</button>
+                </div>
+                
+                <!-- Join Options: Displayed only in join mode -->
+                <div id="joinOptions" style="display: none;">
+                    <label for="ipAddress">Host IP Address:</label>
+                    <input type="text" id="ipAddress" name="ipAddress" placeholder="Enter host IP">
+                </div>
+                
+                <!-- Host IP Display -->
+                <div id="hostIpDisplay"></div>
+                
+                <button type="submit">Start Game</button>
+            </div>
+        </form>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+    "doom_complete.pk3": [
+        "E1M1", "E1M2", "E1M3", "E2M1", "E2M2", "E2M3",
+        "MAP01", "MAP02", "MAP03", "MAP04", "MAP05", "MAP06"
+    ],
+    "heretic.wad": [
+        "ExM1", "ExM2", "ExM3", "ExM4", "ExM5"
+    ],
+    "hexen.wad": [
+        "MAP01", "MAP02", "MAP03", "MAP04", "MAP05"
+    ],
+    "strife1.wad": [
+        "MAP01", "MAP02", "MAP03", "MAP04"
+    ],
+    "hacx.wad": [
+        "MAP01", "MAP02", "MAP03", "MAP04"
+    ],
+    "chex.wad": [
+        "E1M1", "E1M2", "E1M3", "E1M4"
+    ],
+    "wolf3d.ipk3": [
+        "E1L1", "E1L2", "E1L3", "E1L4"
+    ]
+}

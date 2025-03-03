@@ -1,0 +1,31 @@
+{
+  "name": "GZDoomLauncher",
+  "version": "1.0.0",
+  "description": "Electron-based GZDoom Launcher based on eti Game Lobby code.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "author": "eti",
+  "license": "fuck you license",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "com.gzdoomlauncher.app",
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  }
+}

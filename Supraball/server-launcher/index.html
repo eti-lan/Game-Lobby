@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Supraball Server Launcher</title>
@@ -73,15 +73,30 @@
       min-width: 120px;
       text-align: right;
     }
-    .input-group input, .input-group textarea {
+    .input-group input[type="text"],
+    .input-group input[type="number"] {
       padding: 5px;
       font-size: 14px;
       width: 200px;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-    .input-group textarea {
-      resize: vertical;
+    .input-group input[type="range"] {
+      width: 200px;
+    }
+    /* Styling for the game mode selection group */
+    .game-mode-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+    .game-mode-group label {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
     .buttons {
       text-align: center;
@@ -114,26 +129,57 @@
   </style>
 </head>
 <body>
-  <h1>Supraball Server Launcher</h1>
-  <div class="container">
-    <div class="maps-container" id="mapsContainer"></div>
-    <div class="input-group">
-      <label for="timeLimit">Time Limit (minutes):</label>
-      <input type="text" id="timeLimit" value="15">
-    </div>
-    <div class="input-group">
-      <label for="maxPlayers">Max Players:</label>
-      <input type="text" id="maxPlayers" value="12">
-    </div>
-    <div class="input-group">
-      <label for="serverName">Server Name:</label>
-      <input type="text" id="serverName" value="Supraball LAN Server">
-    </div>
-    <div class="buttons">
-      <button id="startButton">Start Server</button>
-      <button id="cancelButton">Cancel</button>
-    </div>
+<h1>Supraball Server Launcher</h1>
+<div class="container">
+  <div class="maps-container" id="mapsContainer"></div>
+
+  <!-- Game mode selection -->
+  <div class="game-mode-group">
+    <label for="modeTime">
+      <input type="radio" id="modeTime" name="mode" value="time" checked> Time Limit
+    </label>
+    <label for="modeGoal">
+      <input type="radio" id="modeGoal" name="mode" value="goal"> Goal Score
+    </label>
   </div>
-  <script src="renderer.js"></script>
+
+  <!-- Input field for Time Limit -->
+  <div class="input-group" id="timeLimitGroup">
+    <label for="timeLimit">Time Limit (minutes):</label>
+    <input type="text" id="timeLimit" value="15">
+  </div>
+
+  <!-- Input field for Goal Score (initially hidden) -->
+  <div class="input-group" id="goalScoreGroup" style="display: none;">
+    <label for="goalScore">Goal Score:</label>
+    <input type="text" id="goalScore" value="60">
+  </div>
+
+  <div class="input-group">
+    <label for="maxPlayers">Max Players:</label>
+    <input type="text" id="maxPlayers" value="12">
+  </div>
+  <div class="input-group">
+    <label for="serverName">Server Name:</label>
+    <input type="text" id="serverName" value="Supraball LAN Server">
+  </div>
+
+  <!-- Bot options -->
+  <div class="input-group">
+    <input type="checkbox" id="botsCheckbox">
+    <label for="botsCheckbox">Activate Bots</label>
+  </div>
+  <div class="input-group" id="botSkillGroup" style="display: none;">
+    <label for="botSkill">Bot Skill:</label>
+    <input type="range" id="botSkill" min="0" max="2500" value="1250">
+    <span id="botSkillValue">1250</span>
+  </div>
+
+  <div class="buttons">
+    <button id="startButton">Start Server</button>
+    <button id="cancelButton">Cancel</button>
+  </div>
+</div>
+<script src="renderer.js"></script>
 </body>
 </html>
